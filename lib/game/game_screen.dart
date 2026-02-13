@@ -45,6 +45,12 @@ class _GameScreenState extends State<GameScreen> {
                    
                  },
                 ),
+                IconButton(
+                 icon: const Icon(Icons.volume_up),
+                 onPressed: () {
+                   
+                 },
+                ),
                 
               ],
             ),)
