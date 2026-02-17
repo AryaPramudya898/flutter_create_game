@@ -53,5 +53,24 @@ class AudioManager {
     }
   }
 
+  void playSfx(String fileName){
+    if (_isSfxEnabled) {
+      try {
+        FlameAudio.play('sfx/$fileName', volume: _sfxVolume);
+      } catch (e) {
+        print('Error playing sfx: $e');
+      }
+    }
+  }
+
+  void playSfxWithVolume(String fileName, double volume) {
+    if (_isSfxEnabled) {
+      try {
+        final adjustedVolume = (volume * _sfxVolume).clamp(0.0, 1.0);
+      } catch (e) {
+        print('Error customing volume sound effect: $e');
+      }
+    }
+  }
 
 }
