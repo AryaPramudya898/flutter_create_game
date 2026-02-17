@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 class FruitCatcherGame extends FlameGame {
   @override
-  Color backgroundColor() => const Color(0xFF87CEEB);
+  Color backgroundColor() => const Color(0xFF000000);
 
 
   final ValueNotifier<int> scoreNotifier = ValueNotifier<int>(0);

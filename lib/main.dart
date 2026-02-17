@@ -48,7 +48,7 @@ class _GameScreenState extends State<GameScreen> {
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.white,
                 borderRadius : BorderRadius.circular(10)
               ),
               child: ValueListenableBuilder<int>(
@@ -57,7 +57,7 @@ class _GameScreenState extends State<GameScreen> {
                   return Text(
                     'Score: $score',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.bold
                     ),
