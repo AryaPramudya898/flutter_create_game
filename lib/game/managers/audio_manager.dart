@@ -73,4 +73,56 @@ class AudioManager {
     }
   }
 
+  void setMusicVolume(double volume) {
+    _musicVolume = volume.clamp(0.0, 1.0);
+    try {
+      FlameAudio.bgm.audioPlayer.setVolume(_musicVolume);
+    } catch (e) {
+      print('Error setting volume music: $e');
+    }
+  }
+
+  void toggleMUsic(){
+    _isMusicEnabled = !_isMusicEnabled;
+    if (_isMusicEnabled) {
+      resumeBackgroundMusic();
+    } else {
+      pauseBackgroundMusic();
+    }
+  }
+
+  void toggleSfx(){
+    _isSfxEnabled = !_isSfxEnabled;
+  }
+
+  void enableMusic(){
+    _isMusicEnabled = true;
+    resumeBackgroundMusic(); 
+  }
+
+  void disableMusic(){
+    if (_isMusicEnabled) {
+      _isMusicEnabled = false;
+      pauseBackgroundMusic();
+    }
+  }
+
+  void enableSfx(){
+      _isSfxEnabled = true;
+  }
+
+  void disableSfx() {
+    if (_isSfxEnabled) {
+      _isSfxEnabled = false;
+    }
+  }
+
+   void dispose() {
+    try {
+      FlameAudio.bgm.dispose();
+    } catch (e) {
+      print('Error disposing audio: $e');
+    }
+   }
+
 }
