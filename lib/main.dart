@@ -73,11 +73,17 @@ class _GameScreenState extends State<GameScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                  icon: Icon(Icons.music_note),
+                  icon: Icon(
+                    Icons.music_note,
+                    color: Colors.white,
+                    ),
                   onPressed: () {}, 
                 ),
                 IconButton(
-                  icon: Icon(Icons.volume_up),
+                  icon: Icon(
+                    Icons.volume_up,
+                    color: Colors.white,
+                    ),
                   onPressed: () {}, 
                 ),
               ],
