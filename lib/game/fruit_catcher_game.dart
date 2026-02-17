@@ -9,7 +9,7 @@ import 'package:game/game/components/basket.dart';
 import 'package:game/game/components/fruit.dart';
 import 'package:game/game/managers/audio_manager.dart';
 
-class FruitCatcherGame extends FlameGame {
+class FruitCatcherGame extends FlameGame with PanDetector, HasCollisionDetection {
   late Basket basket;
   late TextComponent scoreText;
   final Random random = Random();
@@ -18,7 +18,7 @@ class FruitCatcherGame extends FlameGame {
 
 
   @override
-  Color backgroundColor() => const Color(0xFF000000);
+  Color backgroundColor() => const Color.fromARGB(255, 162, 236, 164);
 
 
   final ValueNotifier<int> scoreNotifier = ValueNotifier<int>(0);
@@ -68,11 +68,11 @@ class FruitCatcherGame extends FlameGame {
 
   void incrementScore() {
     score++;
-    AudioManager().playSfx('collect.mp3');
+    AudioManager().playSfx('wolfy_sanic-collect-ring-15982.mp3');
   }
 
   void gameOver(){
-    AudioManager().playSfx('explode.mp3');
+    AudioManager().playSfx('');
     pauseEngine();
   }
 
