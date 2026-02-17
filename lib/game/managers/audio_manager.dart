@@ -26,4 +26,32 @@ class AudioManager {
         print('Error initializing audio: $e');
       }
   }
+
+  void playBackgroundMusic() {
+    if (_isMusicEnabled) {
+      try {
+        FlameAudio.bgm.play('music/arcade_melody.mp3', volume: _musicVolume);
+      } catch (e) {
+        print('Error playing backsound: $e');
+      }
+    }
+  }
+
+  void pauseBackgroundMusic() {
+    try {
+      FlameAudio.bgm.pause();
+    } catch (e) {
+      print('Error when pausing music: $e');
+    }
+  }
+
+  void resumeBackgroundMusic() {
+    try {
+      FlameAudio.bgm.resume();
+    } catch (e) {
+      print('Error resuming music: $e');
+    }
+  }
+
+
 }
