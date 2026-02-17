@@ -39,6 +39,13 @@ class _GameScreenState extends State<GameScreen> {
     game = FruitCatcherGame();
   }
 
+  @override
+  void dispose() {
+    game.onRemove();
+    super.dispose();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -81,14 +88,18 @@ class _GameScreenState extends State<GameScreen> {
                     Icons.music_note,
                     color: Colors.white,
                     ),
-                  onPressed: () {}, 
+                  onPressed: () {
+                    AudioManager().toggleSfx();
+                  }, 
                 ),
                 IconButton(
                   icon: Icon(
                     Icons.volume_up,
                     color: Colors.white,
                     ),
-                  onPressed: () {}, 
+                  onPressed: () {
+                    AudioManager().toggleMUsic();
+                  }, 
                 ),
               ],
             )
