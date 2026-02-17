@@ -1,9 +1,12 @@
-import 'dart:nativewrappers/_internal/vm/lib/math_patch.dart';
+import 'dart:math';
 
+import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/widgets.dart';
 import 'package:game/game/components/basket.dart';
+import 'package:game/game/components/fruit.dart';
 import 'package:game/game/managers/audio_manager.dart';
 
 class FruitCatcherGame extends FlameGame {
@@ -30,7 +33,54 @@ class FruitCatcherGame extends FlameGame {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+
+    camera.viewport = FixedResolutionViewport(resolution: Vector2(400, 800));
+
+    basket = Basket();
+    await add(basket);
+
+    await AudioManager().initialize();
     AudioManager().playBackgroundMusic();
   }
+
+    @override
+  void update(double dt){
+    super.update(dt);
+
+    fruitSpawnTimer += dt;
+    if (fruitSpawnTimer >= fruitSpawnInterval){
+      spawnFruit();
+      fruitSpawnTimer = 0 ;
+    }
+  }
+
+  void spawnFruit() {
+    final x  = random.nextDouble() * size.x;
+    final fruit = Fruit(position: Vector2(x, -50));
+    add(fruit);
+  }
+
+  @override
+  void onPanUpdate(DragUpdateInfo info){
+    basket.position.x += info.delta.global.x;
+    basket.position.x = basket.position.x.clamp(basket.size.x / 2, basket.size.y / 2);
+  }
+
+  void incrementScore() {
+    score++;
+    AudioManager().playSfx('collect.mp3');
+  }
+
+  void gameOver(){
+    AudioManager().playSfx('explode.mp3');
+    pauseEngine();
+  }
+
+  @override
+  void onRemove() {
+    AudioManager().pauseBackgroundMusic();
+    super.onRemove();
+  }
+
 }
 
