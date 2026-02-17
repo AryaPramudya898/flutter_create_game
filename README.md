@@ -1,16 +1,8 @@
-# game
+# DONWLOAD APK
+[download](https://github.com/AryaPramudya898/flutter_create_game/releases/download/v1.0/game.apk)
 
-A new Flutter project.
+# PREVIEW
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+https://github.com/user-attachments/assets/e4b538b1-9f1d-4aac-a020-f1cb3a2c1695
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
